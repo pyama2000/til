@@ -40,27 +40,27 @@ $ docker container prune
 $ docker rm -f (docker ps -a -q)
 ```
 
-#### イメージ
+### イメージ
 
-##### 未使用イメージ 
+#### 未使用イメージ 
 
 ```bash
 $ docker image prune
 ```
 
-##### タグ無しイメージ
+#### タグ無しイメージ
 
 ```bash
 $ docker rmi (docker images -f "dangling+true" -q)
 ```
 
-#### ボリューム
+### ボリューム
 
 ```bash
 $ docker volume prune
 ```
 
-#### 未使用ネットワーク
+### 未使用ネットワーク
 
 ```bash
 $ docker network prune
