@@ -18,7 +18,7 @@ $ docker rmi IMAGE
 
 ## Docker一括削除
 
-#### すべて
+### すべて
 
 停止コンテナ、タグ無しイメージ、未使用ボリューム、未使用ネットワークの一括削除
 
@@ -26,15 +26,15 @@ $ docker rmi IMAGE
 $ docker system prune
 ```
 
-#### コンテナ
+### コンテナ
 
-###### 停止コンテナ
+#### 停止コンテナ
 
 ```bash
 $ docker container prune
 ```
 
-###### 全コンテナ
+#### 全コンテナ
 
 ```bash
 $ docker rm -f (docker ps -a -q)
@@ -42,25 +42,25 @@ $ docker rm -f (docker ps -a -q)
 
 #### イメージ
 
-###### 未使用イメージ 
+##### 未使用イメージ 
 
 ```bash
 $ docker image prune
 ```
 
-###### タグ無しイメージ
+##### タグ無しイメージ
 
 ```bash
 $ docker rmi (docker images -f "dangling+true" -q)
 ```
 
-###### ボリューム
+#### ボリューム
 
 ```bash
 $ docker volume prune
 ```
 
-###### 未使用ネットワーク
+#### 未使用ネットワーク
 
 ```bash
 $ docker network prune
