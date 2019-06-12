@@ -2,7 +2,7 @@
 
 ## Vec<String> -> Vec<&str>
 
-`Vec<String>`を`Vec<&str>`に変換するときに普通にやると`Vec<&String>`になってしまう。
+`Vec<String>`を`Vec<&str>`に変換するときに普通にやると`Vec<&String>`になってしまう。  
 以下のようにやると`Vec<&str>`に変換できる。
 
 
