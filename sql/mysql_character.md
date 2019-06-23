@@ -6,8 +6,8 @@
 
 MySQLのシステム変数からMySQLの文字コードを確認する。
 
-```mysql
-mysql> SHOW VARIABLES LIKE 'char%';
+```sql
+SHOW VARIABLES LIKE 'char%';
 +--------------------------+------------------------------------------------------+
 | Variable_name            | Value                                                |
 +--------------------------+------------------------------------------------------+
@@ -31,14 +31,14 @@ mysql> SHOW VARIABLES LIKE 'char%';
 
 以下のコマンドでも確認可能。
 
-```mysql
-mysql> status;
+```sql
+status;
 ```
 
 ### テーブルの文字コードを確認
 
-```mysql
-mysql> SHOW CREATE TABLE <table_name>;
+```sql
+SHOW CREATE TABLE <table_name>;
 ```
 
 ## 文字コードをUTF8に変更
@@ -47,7 +47,7 @@ mysql> SHOW CREATE TABLE <table_name>;
 
 文字コードの変更を設定ファイルを使って変更する。
 
-```/etc/my.cnf
+```:/etc/my.cnf
 [mysqld]
 character-set-server=utf8
 
@@ -66,17 +66,17 @@ default-character-set=utf8
 データベースやシステムの文字コードは`SET`コマンドを用いて変更可能。
 
 ```mysql
-mysql> SET character_set_database=utf8;
-mysql> SET character_set_server=utf8;
+SET character_set_database=utf8;
+SET character_set_server=utf8;
 ```
 
 ただし、既に作成したデータベース内の情報には変更が反映されないため以下のコマンドを実行する必要がある。
 
 ```mysql
 # テーブルのデフォルトの文字コードを変更
-mysql> ALTER TABLE <table_name> CHARSET=utf8;
+ALTER TABLE <table_name> CHARSET=utf8;
 # テーブルとカラムの文字コードを変更する場合は以下のコマンド
-mysql> ALTER TABLE <table_name> CONVERT TO CHARACTER SET utf8;
+ALTER TABLE <table_name> CONVERT TO CHARACTER SET utf8;
 # カラムの文字コードを1つずつ変更する場合は以下のコマンド
-mysql> ALTER TABLE <table_name> MODIFY <column_name> <data_type> CHARACTER SET utf8 COLLATE utf8_general_ci;
+ALTER TABLE <table_name> MODIFY <column_name> <data_type> CHARACTER SET utf8 COLLATE utf8_general_ci;
 ```
